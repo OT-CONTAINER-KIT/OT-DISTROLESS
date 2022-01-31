@@ -1,13 +1,13 @@
 FROM alpine:3.9 as builder
 
-MAINTAINER Opstree Solutions
+LABEL maintainer="Opstree Solutions"
 
 RUN mkdir -p /var/log/ot /etc/ot/ /data/ot
 
     
 FROM gcr.io/distroless/python3-debian11
 
-MAINTAINER Opstree Solutions
+LABEL maintainer="Opstree Solutions"
 
 COPY --from=builder /var/log/ot /var/log/ot
 COPY --from=builder /etc/ot/ /etc/ot/
